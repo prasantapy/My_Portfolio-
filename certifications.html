@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certifications | Prasanta Sethi</title>
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .navbar { box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .cert-card { transition: transform 0.3s ease, box-shadow 0.3s ease; border: none; border-radius: 10px; background: white;}
+        .cert-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important; }
+        .cert-icon { font-size: 2.5rem; }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">Prasanta Sethi</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="certifications.html">Certifications</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container my-5 flex-grow-1">
+        <div class="text-center mb-5">
+            <h1 class="fw-bold">Certifications & Achievements</h1>
+            <p class="text-muted fs-5">Verified credentials and professional training certificates.</p>
+        </div>
+
+        <div class="row g-4">
+            
+            <!-- Certification 1 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm cert-card text-center p-4">
+                    <div class="card-body">
+                        <div class="mb-3"><i class="fab fa-linux cert-icon text-warning"></i></div>
+                        <h4 class="card-title fw-bold">NDG Linux Unhatched</h4>
+                        <h6 class="text-muted">Cisco Networking Academy</h6>
+                        <p class="small text-secondary mt-3">Introduction to Linux fundamentals, command line operations, file systems, users, permissions, and system administration.</p>
+                        <a href="https://www.credly.com/badges/e0a455fb-ba8b-4125-9e63-7d8ba950fd57/public_url" target="_blank" class="btn btn-outline-primary mt-2">Verify Credential</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certification 2 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm cert-card text-center p-4">
+                    <div class="card-body">
+                        <div class="mb-3"><i class="fab fa-microsoft cert-icon text-primary"></i></div>
+                        <h4 class="card-title fw-bold">GitHub Copilot and Python</h4>
+                        <h6 class="text-muted">Microsoft Learn</h6>
+                        <p class="small text-secondary mt-3">Learned AI-assisted development using GitHub Copilot for Python programming and productivity enhancement.</p>
+                        <a href="https://learn.microsoft.com/api/achievements/share/en-us/prasantasethi-4849/9ANC85KU?sharingId=BE19A3917792489B" target="_blank" class="btn btn-outline-primary mt-2">Verify Credential</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certification 3 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm cert-card text-center p-4">
+                    <div class="card-body">
+                        <div class="mb-3"><i class="fab fa-python cert-icon text-success"></i></div>
+                        <h4 class="card-title fw-bold">HackerRank Python</h4>
+                        <h6 class="text-muted">HackerRank</h6>
+                        <p class="small text-secondary mt-3">Demonstrated proficiency in Python programming, problem-solving, and coding assessment skills.</p>
+                        <a href="https://www.hackerrank.com/certificates/2492acd633d5" target="_blank" class="btn btn-outline-primary mt-2">Verify Credential</a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4 mt-auto">
+        <p class="mb-0">&copy; 2026 Prasanta Sethi | Python Developer</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
