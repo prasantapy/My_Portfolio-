@@ -1,40 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg">
-	<meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects | Prasanta Sethi</title>
 
-    <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <style>
         body {
-            background-color: #f8f9fa;
+            /* Midnight Tech Static Gradient Background */
+            background-color: #020617;
+            background-image: radial-gradient(circle at top left, #0f172a, #020617);
+            color: #e2e8f0;
             font-family: 'Segoe UI', sans-serif;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
-        .navbar { box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        
+        .navbar {
+            box-shadow: 0 2px 20px rgba(0, 240, 255, 0.1);
+            background-color: rgba(2, 6, 23, 0.85) !important; 
+            backdrop-filter: blur(12px); 
+        }
+
+        /* Glassmorphism Project Cards */
         .project-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease; border: none; border-radius: 10px;
+            background: rgba(30, 41, 59, 0.4) !important; 
+            backdrop-filter: blur(10px);
+            border-radius: 12px; 
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3); 
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
+        
         .project-card:hover {
-            transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+            transform: translateY(-5px); 
+            border-color: #00f0ff;
+            box-shadow: 0 10px 25px rgba(0, 240, 255, 0.15) !important; 
         }
-        .tech-badge { margin-right: 5px; margin-bottom: 5px; font-weight: 500; }
+
+        .card-title {
+            color: #ffffff !important;
+            letter-spacing: -0.5px;
+            font-weight: 700;
+        }
+
+        .card-subtitle { color: #818cf8 !important; } /* Indigo for role */
+        
+        .card-text { color: #cbd5e1 !important; }
+        .card-text li { margin-bottom: 8px; }
+
+        /* Tech Badge Styling */
+        .tech-badge { 
+            background: rgba(0, 240, 255, 0.1) !important;
+            color: #00f0ff !important;
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            margin-right: 5px; 
+            margin-bottom: 5px; 
+            font-weight: 500; 
+            transition: 0.2s;
+        }
+        .tech-badge:hover {
+            background: rgba(0, 240, 255, 0.2) !important;
+        }
+
+        /* GitHub Button */
+        .btn-github {
+            background: rgba(2, 6, 23, 0.6);
+            color: #ffffff;
+            border: 1px solid #cbd5e1;
+            transition: all 0.3s ease;
+        }
+        .btn-github:hover {
+            background: #ffffff;
+            color: #020617;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background-color: rgba(2, 6, 23, 0.95) !important;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
     </style>
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <audio id="robot-audio" src="https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3" preload="auto"></audio>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html">Prasanta Sethi</a>
+            <a class="navbar-brand fw-bold" style="color: #00f0ff; letter-spacing: 1px;" href="index.html">Prasanta<span style="color: #ffffff;">Sethi</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -44,40 +104,39 @@
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link active" href="projects.html">Projects</a></li>
                     <li class="nav-item"><a class="nav-link" href="certifications.html">Certifications</a></li>
+                    <li class="nav-item"><a class="nav-link " href="contact.html">Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Main Content -->
     <div class="container my-5 flex-grow-1">
         <div class="text-center mb-5">
-            <h1 class="fw-bold">My Projects</h1>
-            <p class="text-muted fs-5">A detailed look at the robust back-end applications and APIs I have built.</p>
+            <h1 class="fw-bold" style="color: #ffffff;">My Projects</h1>
+            <p class="fs-5" style="color: #cbd5e1;">A detailed look at the robust back-end applications and APIs I have built.</p>
         </div>
 
         <div class="row g-4">
-            <!-- Project 1 -->
             <div class="col-lg-6">
-                <div class="card h-100 shadow-sm project-card p-3 bg-white">
+                <div class="card h-100 shadow-sm project-card p-3">
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h3 class="card-title text-primary mb-0">Blog REST API</h3>
-                            <a href="https://github.com/prasantapy/FastAPI-Blog-API" target="_blank" class="btn btn-outline-dark btn-sm">
+                            <h3 class="card-title mb-0">Blog REST API</h3>
+                            <a href="https://github.com/prasantapy/FastAPI-Blog-API" target="_blank" class="btn btn-github btn-sm" onclick="playRobotSound()">
                                 <i class="fab fa-github"></i> GitHub
                             </a>
                         </div>
-                        <h6 class="card-subtitle mb-3 text-muted"><i class="fas fa-briefcase"></i> Backend Developer</h6>
+                        <h6 class="card-subtitle mb-3"><i class="fas fa-briefcase"></i> Backend Developer</h6>
                         
                         <div class="mb-3">
-                            <span class="badge bg-secondary tech-badge">FastAPI</span>
-                            <span class="badge bg-secondary tech-badge">PostgreSQL</span>
-                            <span class="badge bg-secondary tech-badge">Docker</span>
-                            <span class="badge bg-secondary tech-badge">AWS EC2</span>
-                            <span class="badge bg-secondary tech-badge">Pydantic</span>
+                            <span class="badge tech-badge">FastAPI</span>
+                            <span class="badge tech-badge">PostgreSQL</span>
+                            <span class="badge tech-badge">Docker</span>
+                            <span class="badge tech-badge">AWS EC2</span>
+                            <span class="badge tech-badge">Pydantic</span>
                         </div>
 
-                        <ul class="card-text text-secondary text-sm">
+                        <ul class="card-text text-sm">
                             <li>Engineered 10+ secure RESTful API endpoints featuring role-based access control and JWT authentication.</li>
                             <li>Architected a robust relational database schema using PostgreSQL with clean layered logic.</li>
                             <li>Implemented strict data validation and serialization utilizing Pydantic models.</li>
@@ -87,27 +146,26 @@
                 </div>
             </div>
 
-            <!-- Project 2 -->
             <div class="col-lg-6">
-                <div class="card h-100 shadow-sm project-card p-3 bg-white">
+                <div class="card h-100 shadow-sm project-card p-3">
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h3 class="card-title text-primary mb-0">Gym Management System</h3>
-                            <a href="https://github.com/prasantapy/Gym_Management_System" target="_blank" class="btn btn-outline-dark btn-sm">
+                            <h3 class="card-title mb-0">Gym Management System</h3>
+                            <a href="https://github.com/prasantapy/Gym_Management_System" target="_blank" class="btn btn-github btn-sm" onclick="playRobotSound()">
                                 <i class="fab fa-github"></i> GitHub
                             </a>
                         </div>
-                        <h6 class="card-subtitle mb-3 text-muted"><i class="fas fa-briefcase"></i> Full-Stack Developer</h6>
+                        <h6 class="card-subtitle mb-3"><i class="fas fa-briefcase"></i> Full-Stack Developer</h6>
                         
                         <div class="mb-3">
-                            <span class="badge bg-secondary tech-badge">Django</span>
-                            <span class="badge bg-secondary tech-badge">MySQL</span>
-                            <span class="badge bg-secondary tech-badge">DRF</span>
-                            <span class="badge bg-secondary tech-badge">HTML/CSS</span>
-                            <span class="badge bg-secondary tech-badge">Bootstrap</span>
+                            <span class="badge tech-badge">Django</span>
+                            <span class="badge tech-badge">MySQL</span>
+                            <span class="badge tech-badge">DRF</span>
+                            <span class="badge tech-badge">HTML/CSS</span>
+                            <span class="badge tech-badge">Bootstrap</span>
                         </div>
 
-                        <ul class="card-text text-secondary text-sm">
+                        <ul class="card-text text-sm">
                             <li>Designed and developed a full-scale web application adhering to the Django MVT architecture.</li>
                             <li>Built and optimized 8+ RESTful APIs using Django REST Framework for member tracking.</li>
                             <li>Leveraged Django ORM to handle complex database operations and optimized schema design.</li>
@@ -119,11 +177,18 @@
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="bg-dark text-white text-center py-4 mt-auto">
-        <p class="mb-0">&copy; 2026 Prasanta Sethi | Python Developer</p>
+    <footer class="text-white text-center py-4 mt-auto">
+        <p class="mb-0" style="color: #64748b; font-size: 0.9rem;">&copy; 2026 Prasanta Sethi | Python Developer</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        function playRobotSound() {
+            const audio = document.getElementById('robot-audio');
+            audio.currentTime = 0; 
+            audio.play().catch(error => console.log("Audio prevented:", error));
+        }
+    </script>
 </body>
 </html>
