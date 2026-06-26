@@ -6,42 +6,139 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prasanta Sethi | Python Developer</title>
 
+    <meta property="og:title" content="Prasanta Sethi | Python Developer">
+    <meta property="og:description" content="Portfolio of Prasanta Sethi, a Python Developer skilled in Django, FastAPI, AWS, and Docker.">
+    <meta property="og:url" content="https://prasantapy.github.io/">
+    <meta property="og:type" content="website">
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <style>
-        body { color: #e2e8f0; font-family: 'Segoe UI', sans-serif; display: flex; flex-direction: column; min-height: 100vh; background-color: #020617; overflow-x: hidden; }
-        .navbar { box-shadow: 0 2px 20px rgba(0, 240, 255, 0.1); background-color: rgba(2, 6, 23, 0.85) !important; backdrop-filter: blur(12px); position: relative; z-index: 10; }
-        
-        #particle-canvas { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2; background-color: #020617; }
-        @media (max-width: 768px) { #particle-canvas { display: none; } }
+        body {
+            color: #e2e8f0;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #020617;
+            overflow-x: hidden;
+        }
 
-        #cursor-glow { position: fixed; top: 0; left: 0; width: 500px; height: 500px; background: radial-gradient(circle, rgba(0, 240, 255, 0.08) 0%, rgba(2, 6, 23, 0) 70%); border-radius: 50%; pointer-events: none; transform: translate(-50%, -50%); z-index: -1; transition: opacity 0.4s ease; }
+        .navbar {
+            box-shadow: 0 2px 20px rgba(0, 240, 255, 0.1);
+            background-color: rgba(2, 6, 23, 0.85) !important;
+            backdrop-filter: blur(12px);
+            position: relative;
+            z-index: 10;
+        }
 
-        .hero { flex: 1; display: flex; align-items: center; padding: 60px 0; position: relative; }
-        .hero h1 { font-size: 3.5rem; font-weight: 700; color: #ffffff; }
-        .hero h2 { color: #00f0ff; font-weight: 600; margin-bottom: 20px; }
+        #particle-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -2;
+            background-color: #020617;
+        }
+        @media (max-width: 768px) {
+            #particle-canvas { display: none; }
+        }
+
+        #cursor-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.08) 0%, rgba(2, 6, 23, 0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            transition: opacity 0.4s ease;
+        }
+
+        .hero {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            padding: 60px 0;
+            position: relative;
+        }
+
+        .hero h1 { font-size: 3.5rem; font-weight: 700; color: #ffffff; letter-spacing: -0.5px; }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+        }
+
+        .hero h2 {
+            color: #00f0ff;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+        }
+
+        .hero p { font-size: 1.1rem; color: #f8fafc; line-height: 1.7; }
         .highlight { color: #818cf8; font-weight: 600; }
-        
-        .btn-custom { padding: 12px 28px; border-radius: 6px; transition: 0.3s; font-weight: 500; }
-        .btn-cyan { background: rgba(2, 6, 23, 0.6); color: #ffffff; border: 1px solid #00f0ff; }
-        .btn-cyan:hover { background: #00f0ff; color: #020617; }
-        
-        .view-counter-pill { background: rgba(30, 41, 59, 0.4); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 50px; padding: 8px 16px; }
 
-        footer { background-color: rgba(2, 6, 23, 0.95) !important; border-top: 1px solid rgba(255,255,255,0.05); padding: 20px 0; text-align: center; color: #64748b; font-size: 0.9rem; }
+        .btn-custom { padding: 12px 28px; font-size: 1rem; border-radius: 6px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); font-weight: 500; }
+        .btn-cyan { background: rgba(2, 6, 23, 0.6); color: #ffffff; border: 1px solid #00f0ff; }
+        .btn-cyan:hover { background: #00f0ff; color: #020617; box-shadow: 0 0 20px rgba(0, 240, 255, 0.5); }
+        .btn-indigo { background: rgba(2, 6, 23, 0.6); color: #ffffff; border: 1px solid #818cf8; }
+        .btn-indigo:hover { background: #818cf8; color: #ffffff; box-shadow: 0 0 20px rgba(129, 140, 248, 0.5); }
+
+        .social-icons a { color: #94a3b8; font-size: 1.8rem; margin-right: 15px; transition: 0.3s; }
+        .social-icons a:hover { color: #00f0ff; transform: translateY(-3px); }
+
+        .profile-img {
+            max-width: 350px;
+            width: 100%;
+            border-radius: 50%;
+            box-shadow: 0 0 40px rgba(0, 240, 255, 0.15);
+            border: 3px solid rgba(0, 240, 255, 0.5);
+        }
+
+        .text-gradient {
+            background: linear-gradient(90deg, #00f0ff, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 16px;
+            background: rgba(0, 240, 255, 0.05);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            border-radius: 50px;
+            margin-bottom: 25px;
+        }
+        .pulse-dot {
+            width: 8px; height: 8px; background-color: #00f0ff; border-radius: 50%; margin-right: 10px;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 240, 255, 0.7); }
+            70% { box-shadow: 0 0 0 8px rgba(0, 240, 255, 0); }
+        }
     </style>
 </head>
 <body>
 
     <canvas id="particle-canvas"></canvas>
     <div id="cursor-glow"></div>
+    <audio id="robot-audio" src="https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3" preload="auto"></audio>
 
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" style="color: #00f0ff;" href="index.html">Prasanta<span style="color: #ffffff;">Sethi</span></a>
-            <div class="collapse navbar-collapse">
+            <a class="navbar-brand fw-bold" style="color: #00f0ff; letter-spacing: 1px;" href="index.html">Prasanta<span style="color: #ffffff;">Sethi</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
@@ -56,34 +153,41 @@
     <section class="hero">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-7 text-center text-lg-start">
+                <div class="col-lg-7 text-center text-lg-start mb-5 mb-lg-0">
+                    <div class="status-badge">
+                        <div class="pulse-dot"></div>
+                        <span style="color: #00f0ff; font-size: 0.85rem; font-weight: 500;">Available for Work</span>
+                    </div>
                     <h1>Hi, I'm Prasanta Sethi</h1>
                     <h2 class="text-gradient">Python Developer</h2>
-                    <p class="lead mb-4">Full Stack Python Developer skilled in Django, FastAPI, Docker, and AWS.</p>
-                    <a href="mailto:prasanta.sethi.py@gmail.com" class="btn btn-cyan btn-custom me-2"><i class="fas fa-envelope"></i> Contact Me</a>
+                    <p class="lead mb-4">
+                        Recently completed a <span class="highlight">Full Stack Python Development</span> course.
+                        Skilled in Python, Django, FastAPI, Docker, and AWS.
+                    </p>
+                    <div class="mt-4">
+                        <a href="mailto:prasanta.sethi.py@gmail.com" class="btn btn-cyan btn-custom me-2 mb-2"><i class="fas fa-envelope"></i> Contact Me</a>
+                        <a href="https://drive.google.com/file/d/10ny7sjJ3JG0LJ7u6iVaPg6EtrCrGOksk/view?usp=sharing" target="_blank" class="btn btn-indigo btn-custom me-2 mb-2"><i class="fas fa-download"></i> Resume</a>
+                    </div>
+                    <div class="social-icons mt-4">
+                        <a href="https://github.com/prasantapy" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/prasantasethi-py/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    </div>
                 </div>
-                <div class="col-lg-5 text-center mt-5 mt-lg-0">
-                    <img src="images/profile.jpeg" alt="Profile" class="profile-img" style="max-width: 300px; border-radius: 50%; border: 3px solid #00f0ff;">
+                <div class="col-lg-5 profile-img-container">
+                    <img src="images/profile.jpeg" alt="Prasanta Sethi" class="profile-img">
                 </div>
             </div>
         </div>
     </section>
 
-    <footer>
-        <div class="container d-flex justify-content-between align-items-center flex-wrap">
-            <p>&copy; 2026 Prasanta Sethi | Python Developer</p>
-            <div class="view-counter-pill">
-                <i class="fas fa-eye" style="color: #00f0ff;"></i> Views: 
-                <img src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fprasantapy.github.io%2FMy_Portfolio-%2F&label=views&color=00f0ff" alt="Hits">
-            </div>
-        </div>
-    </footer>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         const canvas = document.getElementById('particle-canvas');
         const ctx = canvas.getContext('2d');
         let particles = [];
-        
+        const particleCount = 100;
+        const connectionDistance = 120;
+
         function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
         window.addEventListener('resize', resize);
         resize();
@@ -94,39 +198,58 @@
                 this.y = Math.random() * canvas.height;
                 this.vx = (Math.random() - 0.5) * 2;
                 this.vy = (Math.random() - 0.5) * 2;
+                this.radius = 1.5;
+                this.color = 'rgba(0, 240, 255, 0.8)';
             }
             update() {
-                this.x += this.vx; this.y += this.vy;
+                this.x += this.vx;
+                this.y += this.vy;
                 if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
                 if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
             }
             draw() {
                 ctx.beginPath();
-                ctx.arc(this.x, this.y, 1.5, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(0, 240, 255, 0.8)';
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
                 ctx.fill();
             }
         }
-        for(let i=0; i<100; i++) particles.push(new Particle());
-        
+
+        for (let i = 0; i < particleCount; i++) particles.push(new Particle());
+
         function animate() {
-            if(window.innerWidth > 768) {
-                ctx.clearRect(0,0,canvas.width, canvas.height);
-                particles.forEach(p => { p.update(); p.draw(); });
-                for(let i=0; i<particles.length; i++){
-                    for(let j=i+1; j<particles.length; j++){
-                        const dist = Math.hypot(particles[i].x-particles[j].x, particles[i].y-particles[j].y);
-                        if(dist < 120){
-                            ctx.strokeStyle = `rgba(0,240,255,${0.2 * (1 - dist/120)})`;
-                            ctx.beginPath(); ctx.moveTo(particles[i].x, particles[i].y); ctx.lineTo(particles[j].x, particles[j].y); ctx.stroke();
-                        }
+            requestAnimationFrame(animate);
+            if (window.innerWidth <= 768) return; // Disable animation on mobile
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => { p.update(); p.draw(); });
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    if (distance < connectionDistance) {
+                        const opacity = 1 - (distance / connectionDistance);
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(0, 240, 255, ${opacity * 0.4})`;
+                        ctx.lineWidth = 0.8;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
                     }
                 }
             }
-            requestAnimationFrame(animate);
         }
         animate();
+
+        // Cursor Glow
+        const cursorGlow = document.getElementById('cursor-glow');
+        document.addEventListener('mousemove', (e) => {
+            cursorGlow.style.left = e.clientX + 'px';
+            cursorGlow.style.top = e.clientY + 'px';
+        });
     </script>
 </body>
 </html>
+
+
 
