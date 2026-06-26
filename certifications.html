@@ -5,165 +5,150 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Certifications | Prasanta Sethi</title>
-    
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <style>
-        body {
-            /* Midnight Tech Static Gradient Background */
-            background-color: #020617;
-            background-image: radial-gradient(circle at top right, #0f172a, #020617);
-            color: #e2e8f0;
-            font-family: 'Segoe UI', sans-serif;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        
-        .navbar {
-            box-shadow: 0 2px 20px rgba(0, 240, 255, 0.1);
-            background-color: rgba(2, 6, 23, 0.85) !important; 
-            backdrop-filter: blur(12px); 
-        }
-
-        /* Glassmorphism Dark Card for Certifications */
-        .cert-card { 
-            background: rgba(30, 41, 59, 0.4) !important; 
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 12px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .cert-card:hover { 
-            transform: translateY(-5px); 
-            border-color: #00f0ff;
-            box-shadow: 0 10px 25px rgba(0, 240, 255, 0.15) !important; 
-        }
-        
-        .cert-icon { font-size: 2.5rem; text-shadow: 0 0 15px rgba(255,255,255,0.2); }
-        
-        .card-title { color: #ffffff; letter-spacing: -0.5px; }
-        .card-subtitle { color: #818cf8 !important; } /* Indigo text for institution */
-        .card-text { color: #cbd5e1 !important; }
-
-        /* Custom Neon Button styling */
-        .btn-verify {
-            background: rgba(2, 6, 23, 0.6);
-            color: #00f0ff;
-            border: 1px solid #00f0ff;
-            transition: all 0.3s ease;
-        }
-        .btn-verify:hover {
-            background: #00f0ff;
-            color: #020617;
-            box-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
-        }
-
-        /* Footer */
-        footer {
-            background-color: rgba(2, 6, 23, 0.95) !important;
-            border-top: 1px solid rgba(255,255,255,0.05);
-        }
+        body { color: #e2e8f0; font-family: 'Segoe UI', sans-serif; display: flex; flex-direction: column; min-height: 100vh; background-color: #020617; overflow-x: hidden; }
+        .navbar { box-shadow: 0 2px 20px rgba(0, 240, 255, 0.1); background-color: rgba(2, 6, 23, 0.85) !important; backdrop-filter: blur(12px); position: relative; z-index: 10; }
+        #cursor-glow { position: fixed; top: 0; left: 0; width: 500px; height: 500px; background: radial-gradient(circle, rgba(0, 240, 255, 0.08) 0%, rgba(2, 6, 23, 0) 70%); border-radius: 50%; pointer-events: none; transform: translate(-50%, -50%); z-index: 0; transition: opacity 0.4s ease; }
+        .text-gradient { background: linear-gradient(90deg, #00f0ff, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .glass-panel { background: rgba(30, 41, 59, 0.4); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 12px; padding: 40px; }
+        .cert-card { background: rgba(30, 41, 59, 0.3); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 12px; padding: 25px; height: 100%; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); display: flex; align-items: flex-start; gap: 20px; }
+        .cert-card:hover { border-color: rgba(0, 240, 255, 0.3); box-shadow: 0 10px 30px rgba(0, 240, 255, 0.1); transform: translateY(-5px); }
+        .cert-icon { font-size: 2rem; color: #818cf8; background: rgba(129, 140, 248, 0.1); width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 12px; flex-shrink: 0; border: 1px solid rgba(129, 140, 248, 0.2); }
+        .verify-btn { background: rgba(2, 6, 23, 0.8); border: 1px solid rgba(255, 255, 255, 0.1); color: #cbd5e1; padding: 6px 16px; border-radius: 6px; font-size: 0.85rem; text-decoration: none; transition: all 0.3s; display: inline-flex; align-items: center; gap: 8px; margin-top: 10px; }
+        .verify-btn:hover { background: #00f0ff; color: #020617; border-color: #00f0ff; }
+        .main-content { position: relative; z-index: 1; flex: 1; padding: 60px 0; }
+        .section-header::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, rgba(255,255,255,0.1), transparent); margin-left: 20px; }
     </style>
 </head>
 <body>
 
-    <audio id="robot-audio" src="https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3" preload="auto"></audio>
+    <div id="cursor-glow"></div>
 
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
         <div class="container">
             <a class="navbar-brand fw-bold" style="color: #00f0ff; letter-spacing: 1px;" href="index.html">Prasanta<span style="color: #ffffff;">Sethi</span></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
                     <li class="nav-item"><a class="nav-link active" href="certifications.html">Certifications</a></li>
-                    <li class="nav-item"><a class="nav-link " href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="container my-5 flex-grow-1">
+    <div class="main-content container">
         <div class="text-center mb-5">
-            <h1 class="fw-bold" style="color: #ffffff;">Certifications & Achievements</h1>
-            <p class="fs-5" style="color: #cbd5e1;">Verified credentials and professional training certificates.</p>
+            <h1 class="fw-bold" style="color: #ffffff;">Licenses & <span class="text-gradient">Certifications</span></h1>
+        </div>
+
+        <h3 class="fw-bold mb-4" style="color: #ffffff;"><i class="fas fa-certificate" style="color: #00f0ff; margin-right: 10px;"></i>Professional Credentials</h3>
+        
+        <div class="row g-4 mb-5">
+            <!-- HackerRank SQL Advanced -->
+            <div class="col-lg-6">
+                <div class="cert-card">
+                    <div class="cert-icon" style="color: #00ea64;"><i class="fab fa-hackerrank"></i></div>
+                    <div class="cert-details">
+                        <h4 class="text-white">SQL (Advanced)</h4>
+                        <div style="color: #00f0ff;">HackerRank</div>
+                        <a href="https://www.hackerrank.com/CERTIFICATES/IFRAME/59505C8DF491" target="_blank" class="verify-btn"><i class="fas fa-external-link-alt"></i> Verify</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Python Basic -->
+            <div class="col-lg-6">
+                <div class="cert-card">
+                    <div class="cert-icon" style="color: #3776AB;"><i class="fab fa-python"></i></div>
+                    <div class="cert-details">
+                        <h4 class="text-white">Python (Basic)</h4>
+                        <div style="color: #00f0ff;">HackerRank</div>
+                        <a href="https://www.hackerrank.com/certificates/2492acd633d5" target="_blank" class="verify-btn"><i class="fas fa-external-link-alt"></i> Verify</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Linux Fundamentals -->
+            <div class="col-lg-6">
+                <div class="cert-card">
+                    <div class="cert-icon" style="color: #fcc624;"><i class="fab fa-linux"></i></div>
+                    <div class="cert-details">
+                        <h4 class="text-white">Linux Fundamentals</h4>
+                        <div style="color: #00f0ff;">Credly</div>
+                        <a href="https://www.credly.com/badges/e0a455fb-ba8b-4125-9e63-7d8ba950fd57/public_url" target="_blank" class="verify-btn"><i class="fas fa-external-link-alt"></i> Verify</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Problem Solving Basic -->
+            <div class="col-lg-6">
+                <div class="cert-card">
+                    <div class="cert-icon" style="color: #00ea64;"><i class="fab fa-hackerrank"></i></div>
+                    <div class="cert-details">
+                        <h4 class="text-white">Problem Solving (Basic)</h4>
+                        <div style="color: #00f0ff;">HackerRank</div>
+                        <a href="https://www.hackerrank.com/certificates/91ffc45e7a2c" target="_blank" class="verify-btn"><i class="fas fa-external-link-alt"></i> Verify</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Microsoft -->
+            <div class="col-lg-6">
+                <div class="cert-card">
+                    <div class="cert-icon" style="color: #00a4ef;"><i class="fab fa-microsoft"></i></div>
+                    <div class="cert-details">
+                        <h4 class="text-white">Microsoft Achievement</h4>
+                        <div style="color: #00f0ff;">Microsoft Learn</div>
+                        <a href="https://learn.microsoft.com/api/achievements/share/en-us/prasantasethi-4849/9ANC85KU?sharingId=BE19A3917792489B" target="_blank" class="verify-btn"><i class="fas fa-external-link-alt"></i> Verify</a>
+                    </div>
+                </div>
+            </div>
+            <!-- LinkedIn -->
+            <div class="col-lg-6">
+                <div class="cert-card">
+                    <div class="cert-icon" style="color: #0a66c2;"><i class="fab fa-linkedin"></i></div>
+                    <div class="cert-details">
+                        <h4 class="text-white">Professional Development</h4>
+                        <div style="color: #00f0ff;">LinkedIn Learning</div>
+                        <a href="https://www.linkedin.com/learning/certificates/46163c07b9ff6e79614a307f1cb3ae41ec8910cc436ad21460de7e49defcc1cd?trk=share_certificate" target="_blank" class="verify-btn"><i class="fas fa-external-link-alt"></i> Verify</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-header d-flex align-items-center mb-4">
+            <h3 class="fw-bold mb-0" style="color: #ffffff;"><i class="fas fa-graduation-cap" style="color: #f59e0b; margin-right: 10px;"></i>Education</h3>
         </div>
 
         <div class="row g-4">
-            
-            <div class="col-md-6 col-lg-3">
-                <div class="card h-100 shadow-sm cert-card text-center p-4">
-                    <div class="card-body d-flex flex-column">
-                        <div class="mb-3"><i class="fab fa-linux cert-icon text-warning"></i></div>
-                        <h4 class="card-title fw-bold fs-5">NDG Linux Unhatched</h4>
-                        <h6 class="card-subtitle small">Cisco Academy</h6>
-                        <p class="small card-text mt-3 flex-grow-1">Introduction to Linux fundamentals, command line operations, file systems, and system administration.</p>
-                        <a href="https://www.credly.com/badges/e0a455fb-ba8b-4125-9e63-7d8ba950fd57/public_url" target="_blank" class="btn btn-verify mt-auto btn-sm" onclick="playRobotSound()">Verify Credential</a>
+            <div class="col-lg-12">
+                <div class="glass-panel">
+                    <div class="mb-4">
+                        <h4 class="fw-bold text-white">Master's in Information Technology</h4>
+                        <div class="cert-issuer" style="color: #00f0ff;">Zenith School of Management Technology | 2023-2025</div>
+                        <p style="color: #94a3b8;">CGPA: 7.5</p>
+                    </div>
+                    <div>
+                        <h4 class="fw-bold text-white">B.Tech - Mechanical Engineering</h4>
+                        <div class="cert-issuer" style="color: #00f0ff;">Nalanda Institute of Technology, Bhubaneswar | 2019-2023</div>
+                        <p style="color: #94a3b8;">CGPA: 7.6</p>
                     </div>
                 </div>
             </div>
-
-            <div class="col-md-6 col-lg-3">
-                <div class="card h-100 shadow-sm cert-card text-center p-4">
-                    <div class="card-body d-flex flex-column">
-                        <div class="mb-3"><i class="fab fa-microsoft cert-icon" style="color: #4da6ff;"></i></div>
-                        <h4 class="card-title fw-bold fs-5">GitHub Copilot & Python</h4>
-                        <h6 class="card-subtitle small">Microsoft Learn</h6>
-                        <p class="small card-text mt-3 flex-grow-1">Learned AI-assisted development using GitHub Copilot for Python programming.</p>
-                        <a href="https://learn.microsoft.com/api/achievements/share/en-us/prasantasethi-4849/9ANC85KU?sharingId=BE19A3917792489B" target="_blank" class="btn btn-verify mt-auto btn-sm" onclick="playRobotSound()">Verify Credential</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-3">
-                <div class="card h-100 shadow-sm cert-card text-center p-4">
-                    <div class="card-body d-flex flex-column">
-                        <div class="mb-3"><i class="fab fa-python cert-icon text-success"></i></div>
-                        <h4 class="card-title fw-bold fs-5">HackerRank Python</h4>
-                        <h6 class="card-subtitle small">HackerRank</h6>
-                        <p class="small card-text mt-3 flex-grow-1">Demonstrated proficiency in Python programming and algorithmic problem-solving.</p>
-                        <a href="https://www.hackerrank.com/certificates/2492acd633d5" target="_blank" class="btn btn-verify mt-auto btn-sm" onclick="playRobotSound()">Verify Credential</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-3">
-                <div class="card h-100 shadow-sm cert-card text-center p-4" style="border-bottom: 4px solid #0077b5;">
-                    <div class="card-body d-flex flex-column">
-                        <div class="mb-3"><i class="fab fa-linkedin cert-icon" style="color: #00a0dc;"></i></div>
-                        <h4 class="card-title fw-bold fs-5">Python Essential Training</h4>
-                        <h6 class="card-subtitle small">LinkedIn Learning</h6>
-                        <p class="small card-text mt-3 flex-grow-1">Mastered core Python concepts. Completed June 11, 2026.</p>
-                        <a href="https://www.linkedin.com/learning/certificates/46163c07b9ff6e79614a307f1cb3ae41ec8910cc436ad21460de7e49defcc1cd?trk=share_certificate" target="_blank" class="btn btn-verify mt-auto btn-sm" onclick="playRobotSound()">Verify Credential</a>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </div>
 
-    <footer class="py-4 mt-auto text-center">
-        <div class="container">
-            <p class="mb-0" style="color: #64748b; font-size: 0.9rem;">&copy; 2026 Prasanta Sethi | Python Developer</p>
-        </div>
-    </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
-    
     <script>
-        function playRobotSound() {
-            const audio = document.getElementById('robot-audio');
-            audio.currentTime = 0; 
-            audio.play().catch(error => console.log("Audio prevented:", error));
-        }
+        const cursorGlow = document.getElementById('cursor-glow');
+        document.addEventListener('mousemove', (e) => { cursorGlow.style.left = e.clientX + 'px'; cursorGlow.style.top = e.clientY + 'px'; });
     </script>
 </body>
 </html>
+
+
+
