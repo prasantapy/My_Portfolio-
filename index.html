@@ -148,6 +148,10 @@
             box-shadow: 0 0 50px rgba(0, 240, 255, 0.3);
         }
 
+        .project-card {
+            transition: all 0.3s ease;
+        }
+
         .project-card:hover {
             border-color: #00f0ff !important;
             transform: translateY(-5px) !important;
@@ -161,7 +165,79 @@
             color: #cbd5e1; 
             text-shadow: 0 1px 3px rgba(0,0,0,0.5); 
         }
+
+        /* Glass pill for the view counter */
+        .view-counter-pill {
+            background: rgba(30, 41, 59, 0.4); 
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        .view-counter-pill:hover {
+            border-color: rgba(0, 240, 255, 0.3);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.1);
+        }
         
+        /* --- NEW: Custom Scrollbar --- */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #020617; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b; 
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00f0ff; 
+        }
+
+        /* --- NEW: Gradient Text --- */
+        .text-gradient {
+            background: linear-gradient(90deg, #00f0ff, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        /* --- NEW: Pulsing Status Dot --- */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 16px;
+            background: rgba(0, 240, 255, 0.05);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            border-radius: 50px;
+            margin-bottom: 25px;
+            backdrop-filter: blur(4px);
+        }
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #00f0ff;
+            border-radius: 50%;
+            margin-right: 10px;
+            box-shadow: 0 0 10px #00f0ff;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 240, 255, 0.7); }
+            70% { box-shadow: 0 0 0 8px rgba(0, 240, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 240, 255, 0); }
+        }
+
+        /* --- NEW: Floating Image Animation --- */
+        .float-anim {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
         footer {
             background-color: rgba(2, 6, 23, 0.95) !important;
             border-top: 1px solid rgba(255,255,255,0.05);
@@ -203,8 +279,15 @@
             <div class="row align-items-center">
 
                 <div class="col-lg-7 text-center text-lg-start mb-5 mb-lg-0">
+                    <!-- NEW: Status Badge -->
+                    <div class="status-badge">
+                        <div class="pulse-dot"></div>
+                        <span style="color: #00f0ff; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.5px;">Available for Work</span>
+                    </div>
+
                     <h1>Hi, I'm Prasanta Sethi</h1>
-                    <h2>Python Developer</h2>
+                    <!-- NEW: Gradient Text applied here -->
+                    <h2 class="text-gradient">Python Developer</h2>
                     <p class="lead mb-4">
                         Recently completed a <span class="highlight">Full Stack Python Development</span> course at Naresh i Technologies.
                         Skilled in Python, Django, FastAPI, SQL, Docker, AWS, Git, and REST API development.
@@ -225,7 +308,8 @@
                     </div>
                 </div>
 
-                <div class="col-lg-5 profile-img-container">
+                <!-- NEW: Added float-anim class to container -->
+                <div class="col-lg-5 profile-img-container float-anim">
                     <img src="images/profile.jpeg" alt="Prasanta Sethi" class="profile-img">
                 </div>
 
@@ -242,7 +326,7 @@
             
             <div class="row g-4">
                 <div class="col-md-4">
-                    <div class="card h-100 text-center p-4 project-card" style="background: rgba(30, 41, 59, 0.4); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 12px; transition: all 0.3s ease;">
+                    <div class="card h-100 text-center p-4 project-card" style="background: rgba(30, 41, 59, 0.4); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 12px;">
                         <div class="mb-3">
                             <i class="fas fa-server" style="font-size: 2.5rem; color: #00f0ff; text-shadow: 0 0 15px rgba(0, 240, 255, 0.4);"></i>
                         </div>
@@ -252,7 +336,7 @@
                 </div>
 
                 <div class="col-md-4">
-                    <div class="card h-100 text-center p-4 project-card" style="background: rgba(30, 41, 59, 0.4); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 12px; transition: all 0.3s ease;">
+                    <div class="card h-100 text-center p-4 project-card" style="background: rgba(30, 41, 59, 0.4); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 12px;">
                         <div class="mb-3">
                             <i class="fas fa-database" style="font-size: 2.5rem; color: #818cf8; text-shadow: 0 0 15px rgba(129, 140, 248, 0.4);"></i>
                         </div>
@@ -262,7 +346,7 @@
                 </div>
 
                 <div class="col-md-4">
-                    <div class="card h-100 text-center p-4 project-card" style="background: rgba(30, 41, 59, 0.4); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 12px; transition: all 0.3s ease;">
+                    <div class="card h-100 text-center p-4 project-card" style="background: rgba(30, 41, 59, 0.4); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 12px;">
                         <div class="mb-3">
                             <i class="fab fa-aws" style="font-size: 2.5rem; color: #f59e0b; text-shadow: 0 0 15px rgba(245, 158, 11, 0.4);"></i>
                         </div>
@@ -279,15 +363,24 @@
             <h2 class="mb-4 metrics-title" style="font-weight: 700;">My GitHub Contributions</h2>
             <p class="metrics-subtitle mb-4">Real-time statistics pulling directly from my open-source repositories.</p>
             <div class="text-center my-4">
-                <img src="https://github-stats-extended.vercel.app/api?username=prasantapy&show_icons=true&theme=radical&hide_rank=true&hide=stars,prs,issues,contribs" alt="Prasanta's GitHub Stats" class="img-fluid" style="border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.05);">
+                <!-- Custom colored GitHub Stats wrapped in a glassmorphism card -->
+                <div class="d-inline-block p-3 project-card" style="background: rgba(30, 41, 59, 0.4); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 12px;">
+                    <img src="https://github-stats-extended.vercel.app/api?username=prasantapy&show_icons=true&hide_rank=true&hide=stars,prs,issues,contribs&bg_color=0f172a&title_color=00f0ff&text_color=cbd5e1&icon_color=818cf8&border_color=1e293b&border_radius=8" alt="Prasanta's GitHub Stats" class="img-fluid">
+                </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="container d-flex justify-content-center align-items-center flex-wrap gap-3 py-4">
-            <p class="mb-0" style="color: #64748b; font-size: 0.9rem;">&copy; 2026 Prasanta Sethi | Python Developer</p>
-            <img src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fprasantapy.github.io%2FMy_Portfolio-%2F&label=views&color=blue" alt="Visitor Counter" style="opacity: 0.8;">
+        <div class="container d-flex justify-content-between align-items-center flex-wrap py-4">
+            <p class="mb-0 mx-auto mx-md-0 text-center text-md-start" style="color: #64748b; font-size: 0.9rem;">&copy; 2026 Prasanta Sethi | Python Developer</p>
+            
+            <!-- Sleek Glassmorphism View Counter Pill -->
+            <div class="view-counter-pill d-flex align-items-center gap-2 px-3 py-2 mx-auto mx-md-0 mt-3 mt-md-0">
+                <i class="fas fa-chart-line" style="color: #00f0ff; font-size: 0.9rem;"></i>
+                <span style="font-size: 0.85rem; color: #cbd5e1; font-weight: 500;">Profile Views:</span>
+                <img src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fprasantapy.github.io%2FMy_Portfolio-%2F&label=views&color=12bbff" alt="Visitor Counter" style="height: 20px; opacity: 0.9;">
+            </div>
         </div>
     </footer>
 
@@ -396,7 +489,6 @@
     </script>
 </body>
 </html>
-
 
 
 
